@@ -8,11 +8,38 @@ var Note = React.createClass({
 });
 
 var NotesEditor = React.createClass({
+	getInitialState: function() {
+		return{
+			text: ''
+		};
+	},
+
+	handleTextChange: function(event) {
+		this.setState({ text: event.target.value });
+	},
+
+	handleNoteAdd: function() {
+		var newNote = {
+			text: this.state.text,
+			color: 'yellow',
+			id: Date.now()
+		};
+			
+		this.props.onNoteAdd(newNote);
+		this.setState({ text: '' });
+	},
+
 	render: function(){
 		return(
 			<div className="note-editor">
-				<textarea className="textarea" placeholder="Введите текст..." rows={5} />
-				<button className="add-button">Добавить</button>
+				<textarea 
+					className="textarea" 
+					placeholder="Введите текст..." 
+					rows={5} 
+					value={this.state.text}
+					onChange={this.handleTextChange} 
+				/>
+				<button className="add-button" onClick={this.handleNoteAdd}>Добавить</button>
 			</div>
 		);
 	}
@@ -84,13 +111,19 @@ var NotesApp = React.createClass({
 					}
 				]	
 			};
+	},
+
+	handleNoteAdd: function(newNote) {
+		var newNotes = this.state.notes.splice();
+		newNotes.unshift(newNote);
+		this.setState({ notes: newNotes });
 	},		
 
 	render: function(){
 		return(
 			<div className="notes-app">
-				NotesApp
-				<NotesEditor />
+				<h2 className="app-header">NotesApp</h2>
+				<NotesEditor onNoteAdd={this.handleNoteAdd} />
 				<NotesGrid notes={this.state.notes} />
 			</div>
 		);
