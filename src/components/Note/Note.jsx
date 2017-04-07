@@ -1,3 +1,6 @@
+var React = require('react');
+require('./Note.css');
+
 var Note = React.createClass({
 	render: function(){
 		var style = {backgroundColor: this.props.color};
@@ -9,3 +12,5 @@ var Note = React.createClass({
 		);
 	}
 });
+
+module.exports = Note;

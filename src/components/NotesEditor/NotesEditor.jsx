@@ -1,3 +1,6 @@
+var React = require('react');
+require('./NotesEditor.css');
+
 var NotesEditor = React.createClass({
 	getInitialState: function() {
 		return{
@@ -33,3 +36,5 @@ var NotesEditor = React.createClass({
 		);
 	}
 });
+
+module.exports = NotesEditor;

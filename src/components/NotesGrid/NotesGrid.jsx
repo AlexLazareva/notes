@@ -1,3 +1,6 @@
+var React = require('react');
+require('./NotesGrid.css');
+
 var NotesGrid = React.createClass({
 	componentDidMount: function() {
 		var grid = this.refs.grid;
@@ -36,3 +39,5 @@ var NotesGrid = React.createClass({
 		);
 	}
 });
+
+module.exports = NotesGrid;

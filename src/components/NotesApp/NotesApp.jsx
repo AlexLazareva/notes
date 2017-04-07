@@ -1,3 +1,6 @@
+var React = require('react');
+require('./NotesApp.css');
+
 var NotesApp = React.createClass({
 	getInitialState() {
 		return{
@@ -45,3 +48,5 @@ var NotesApp = React.createClass({
 		localStorage.setItem('notes', notes);
 	}
 });
+
+module.exports = NotesApp;
