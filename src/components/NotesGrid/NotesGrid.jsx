@@ -1,4 +1,6 @@
 var React = require('react');
+var Note = require('../Note/Note.jsx');
+
 require('./NotesGrid.css');
 
 var NotesGrid = React.createClass({

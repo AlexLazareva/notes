@@ -1,4 +1,5 @@
 var React = require('react');
+
 require('./NotesEditor.css');
 
 var NotesEditor = React.createClass({
